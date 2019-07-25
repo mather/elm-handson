@@ -1,4 +1,4 @@
-## Elmハンズオン @ 宮崎
+# Elmハンズオン
 
 2019-07-26
 
@@ -44,9 +44,12 @@
 - npm使える人 : `npm i -g elm elm-format`
 - 公式サイトにはMac, Win用インストーラーもあります
     - https://guide.elm-lang.org/install.html
-- オンラインで試す
-    - 公式 : https://elm-lang.org/try
-    - Ellie : https://ellie-app.com (推奨)
+    - 僕は使ったことがない（汗
+- オンラインエディタで試す
+    - 公式サイト : https://elm-lang.org/try
+    - Ellie **(推奨)** : https://ellie-app.com
+
+自分の好きなエディタでガシガシ試したい人はローカルへインストールしてください
 
 +++
 
@@ -77,7 +80,9 @@ http://localhost:8000 へアクセスして `countup.elm` を選択する
 
 `ex1-countup/countup.elm` の内容をコピーして貼り付ける
 
-自動コンパイルしてくれる
+"compile" ボタンをクリックするとコンパイルしてくれる
+
+Ellieの場合は "debug" ボタンを押すとデバッグウィンドウを出してくれる
 
 ---
 
@@ -100,3 +105,157 @@ http://localhost:8000 へアクセスして `countup.elm` を選択する
 ## 課題1
 
 ボタンを押すとカウントアップするアプリケーション
+
+フォルダ : `ex1-countup`
+
++++
+
+## 課題1のデモ
+
++++
+
+## main関数
+
+The Elm Architecture に必要な関数をセットする
+
+```elm
+main =
+    Browser.sandbox
+        { init = init
+        , update = update
+        , view = view
+        }
+```
+
++++
+
+## Model, init
+
+```elm
+-- Model : アプリケーションの状態を Model 型として定義する
+type alias Model =
+    Int
+
+-- init : モデルの初期状態を与える
+init : Model
+init =
+    0
+```
+
++++
+
+## Msg, update
+
+```elm
+-- Msg : アプリケーション内で発生するアクションを定義
+type Msg
+    = Increment
+
+-- update : アクション(Msg)が発生したときに、現在のモデルから新しいモデルを作る関数
+update : Msg -> Model -> Model
+update msg model =
+    case msg of
+        Increment ->
+            model + 1
+```
+
++++
+
+## view
+
+```elm
+view : Model -> Html Msg
+view model =
+    div []
+        [ p [] [ text <| String.fromInt model ]
+        , button [ onClick Increment ] [ text "+1" ]
+        ]
+```
+
+---
+
+## 課題1のミッション
+
+- カウントをリセットする(0に戻す)ボタンを追加する
+- (+α)カウントを下げる(Decrement)ボタンを追加する
+- (+β)0以下にカウントが下がらないようにする
+
++++
+
+## 「リセットする」アクションの追加
+
+```elm
+-- Msg : アプリケーション内で発生するアクションを定義
+type Msg
+    = Increment
+    | Reset
+```
+
++++
+
+## コンパイルエラー
+
+コンパイルエラーが丁寧すぎるくらい丁寧
+
+```
+-- MISSING PATTERNS ------------------------------------------------ countup.elm
+
+This `case` does not have branches for all possibilities:
+
+52|>    case msg of
+53|>        Increment ->
+54|>            model + 1
+
+Missing possibilities include:
+
+    Reset
+
+I would have to crash if I saw one of those. Add branches for them!
+
+Hint: If you want to write the code for each branch later, use `Debug.todo` as a
+placeholder. Read <https://elm-lang.org/0.19.0/missing-patterns> for more
+guidance on this workflow.
+```
+
++++
+
+## updateのパターンを追加する
+
+```elm
+update : Msg -> Model -> Model
+update msg model =
+    case msg of
+        Increment ->
+            model + 1
+
+        Reset ->
+            0
+```
+
+ひとまず動くけど、まだボタンがないのでリセットできない
+
++++
+
+## リセットボタンの追加
+
+```elm
+view : Model -> Html Msg
+view model =
+    div []
+        [ p [] [ text <| String.fromInt model ]
+        , button [ onClick Increment ] [ text "+1" ]
+        , button [ onClick Reset ] [ text "Reset" ]
+        ]
+```
+
+リセットできるようになった
+
++++
+
+# 完
+
+---
+
+## 休憩
+
+質問があれば聞いてね

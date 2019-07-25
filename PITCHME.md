@@ -22,7 +22,7 @@
 
 ## 時間割
 
-- 座学 (10min) ←イマココ！
+- 準備＆座学 (20min) ←イマココ！
 - 課題1 (30min)
 - 質問 ＆ 休憩 (10min)
 - 課題2 (50min)
@@ -38,6 +38,49 @@
 
 ---
 
+## 準備
+
+- Homebrew使える人 : `brew install elm elm-format`
+- npm使える人 : `npm i -g elm elm-format`
+- 公式サイトにはMac, Win用インストーラーもあります
+    - https://guide.elm-lang.org/install.html
+- オンラインで試す
+    - 公式 : https://elm-lang.org/try
+    - Ellie : https://ellie-app.com (推奨)
+
++++
+
+## ソースコード
+
+https://github.com/mather/elm-handson
+
+- ローカルで試す方は `git clone` しましょう
+- オンラインエディタで試す方はブラウザで開いてソースコードを随時コピーします
+
++++
+
+## ローカルで試す
+
+```
+$ cd ex1-countup/
+$ elm reactor
+Go to <http://localhost:8000> to see your project dashboard.
+```
+
+http://localhost:8000 へアクセスして `countup.elm` を選択する
+
+`elm reactor` が変更を検知して自動リコンパイルするので、ファイルを保存してブラウザをリロードすればOK
+
++++
+
+## オンラインエディタで試す
+
+`ex1-countup/countup.elm` の内容をコピーして貼り付ける
+
+自動コンパイルしてくれる
+
+---
+
 ## The Elm Architecture
 
 アプリケーションのライフライクルの定義
@@ -47,6 +90,8 @@
 - `update` : アクションに対応して状態を次の状態に変更する
 
 +++
+
+## ライフサイクルのイメージ
 
 ![ライフライクル](img/ElmAppFlow.png)
 

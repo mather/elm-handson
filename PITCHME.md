@@ -1,4 +1,4 @@
-# Elmハンズオン
+## Elmハンズオン
 
 2019-07-26
 
@@ -22,13 +22,12 @@
 
 ## 時間割
 
-- 準備＆座学 (20min) ←イマココ！
+- 準備＆座学 (20min)
 - 課題1 (30min)
 - 質問 ＆ 休憩 (10min)
 - 課題2 (50min)
 - 振り返り (10min)
 
-懇親会は特に予定してないけど行きたい人がいれば。
 
 ---
 
@@ -38,27 +37,31 @@
 
 ---
 
-## 準備
-
-- Homebrew使える人 : `brew install elm elm-format`
-- npm使える人 : `npm i -g elm elm-format`
-- 公式サイトにはMac, Win用インストーラーもあります
-    - https://guide.elm-lang.org/install.html
-    - 僕は使ったことがない（汗
-- オンラインエディタで試す
-    - 公式サイト : https://elm-lang.org/try
-    - Ellie **(推奨)** : https://ellie-app.com
-
-自分の好きなエディタでガシガシ試したい人はローカルへインストールしてください
-
-+++
-
 ## ソースコード
 
 https://github.com/mather/elm-handson
 
 - ローカルで試す方は `git clone` しましょう
 - オンラインエディタで試す方はブラウザで開いてソースコードを随時コピーします
+
++++
+
+## 準備(ローカルにインストール)
+
+- Homebrew使える人 : `brew install elm elm-format`
+- npm使える人 : `npm i -g elm elm-format`
+- 公式サイトにはMac, Win用インストーラーもあります
+    - https://guide.elm-lang.org/install.html
+    - 僕は使ったことがない（汗
+
+自分の好きなエディタでガシガシ試したい人はローカルへインストールしてください
+
++++
+
+## 準備(オンラインエディタを使う)
+
+- 公式サイト : https://elm-lang.org/try
+- Ellie **(推奨)** : https://ellie-app.com
 
 +++
 
@@ -72,7 +75,7 @@ Go to <http://localhost:8000> to see your project dashboard.
 
 http://localhost:8000 へアクセスして `countup.elm` を選択する
 
-`elm reactor` が変更を検知して自動リコンパイルするので、ファイルを保存してブラウザをリロードすればOK
+`elm reactor` がリクエストを受けて自動コンパイルするので、ブラウザをリロードすればOK
 
 +++
 
@@ -99,6 +102,28 @@ Ellieの場合は "debug" ボタンを押すとデバッグウィンドウを出
 ## ライフサイクルのイメージ
 
 ![ライフライクル](img/ElmAppFlow.png)
+
+---
+
+## elm repl
+
+ローカルにインストールするとREPLが使える
+
+```
+$ elm repl
+> :help
+Valid commands include:
+
+  :exit    Exit the REPL
+  :help    Show this information
+  :reset   Clear all previous imports and definitions
+
+More info at <https://elm-lang.org/0.19.0/repl>
+> 1 + 2
+3 : number
+> Just 3 |> Maybe.map (\x -> x + 1)
+Just 4 : Maybe number
+```
 
 ---
 
@@ -177,8 +202,6 @@ view model =
 ## 課題1のミッション
 
 - カウントをリセットする(0に戻す)ボタンを追加する
-- (+α)カウントを下げる(Decrement)ボタンを追加する
-- (+β)0以下にカウントが下がらないようにする
 
 +++
 
@@ -254,8 +277,31 @@ view model =
 
 # 完
 
+- 追加ミッション(時間と気力に余裕がある人はぜひ自分で解いてみてね)
+    - カウントを下げる(Decrement)ボタンを追加する
+    - 0以下にカウントが下がらないようにする
+
 ---
 
-## 休憩
+## 質問 & 休憩
 
-質問があれば聞いてね
+---
+
+## 課題2
+
+インクリメントサーチ
+
++++
+
+## 課題2のデモ
+
+---
+
+## 課題2のソースコード
+
+`ex2-incremental-search/search.elm`
+
+- オフラインで試す人はディレクトリを移動して `elm reactor`
+- オンラインエディタの人は内容をコピーして貼り付け
+
+

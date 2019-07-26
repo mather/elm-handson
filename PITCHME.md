@@ -73,7 +73,7 @@ $ elm reactor
 Go to <http://localhost:8000> to see your project dashboard.
 ```
 
-http://localhost:8000 へアクセスして `countup.elm` を選択する
+http://localhost:8000 へアクセスして `src` -> `countup.elm` を選択する
 
 `elm reactor` がリクエストを受けて自動コンパイルするので、ブラウザをリロードすればOK
 
@@ -81,7 +81,7 @@ http://localhost:8000 へアクセスして `countup.elm` を選択する
 
 ## オンラインエディタで試す
 
-`ex1-countup/countup.elm` の内容をコピーして貼り付ける
+`ex1-countup/src/countup.elm` の内容をコピーして貼り付ける
 
 "compile" ボタンをクリックするとコンパイルしてくれる
 
@@ -287,6 +287,7 @@ view model =
 - 追加ミッション(時間と気力に余裕がある人はぜひ自分で解いてみてね)
     - カウントを下げる(Decrement)ボタンを追加する
     - 0以下にカウントが下がらないようにする
+    - `if` を使わない
 
 ---
 
@@ -306,7 +307,7 @@ view model =
 
 ## 課題2のソースコード
 
-`ex2-incremental-search/search.elm`
+`ex2-incremental-search/src/search.elm`
 
 - オフラインで試す人はディレクトリを移動して `elm reactor`
 - オンラインエディタの人は内容をコピーして貼り付け

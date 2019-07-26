@@ -46,15 +46,15 @@ https://github.com/mather/elm-handson
 
 +++
 
-## 準備(ローカルにインストール)
+## 準備(インストール)
 
-- Homebrew使える人 : `brew install elm elm-format`
-- npm使える人 : `npm i -g elm elm-format`
-- 公式サイトにはMac, Win用インストーラーもあります
+- Homebrew : `brew install elm elm-format`
+- npm : `npm i -g elm elm-format`
+- インストーラー(Mac, Win)
     - https://guide.elm-lang.org/install.html
     - 僕は使ったことがない（汗
-
-自分の好きなエディタでガシガシ試したい人はローカルへインストールしてください
+- 自分の好きなエディタでガシガシ試したい人はローカルへインストールしてください
+- Atom + elmjutsu おすすめ
 
 +++
 
@@ -124,6 +124,13 @@ More info at <https://elm-lang.org/0.19.0/repl>
 > Just 3 |> Maybe.map (\x -> x + 1)
 Just 4 : Maybe number
 ```
+
+---
+
+## Elm のドキュメント類
+
+- 公式ドキュメント : https://elm-lang.org/docs
+- パッケージ一覧 : https://package.elm-lang.org/
 
 ---
 
@@ -303,5 +310,6 @@ view model =
 
 - オフラインで試す人はディレクトリを移動して `elm reactor`
 - オンラインエディタの人は内容をコピーして貼り付け
+
 
 
